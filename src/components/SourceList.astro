@@ -1,0 +1,63 @@
+---
+interface Props {
+  sources: { title: string; url: string }[];
+}
+
+const { sources } = Astro.props;
+---
+
+{
+  sources.length > 0 && (
+    <section class="sources" aria-label="Sources">
+      <p class="eyebrow">Sources</p>
+      <ol>
+        {sources.map((source) => (
+          <li>
+            <a href={source.url} rel="nofollow noopener" target="_blank">
+              {source.title}
+            </a>
+          </li>
+        ))}
+      </ol>
+    </section>
+  )
+}
+
+<style>
+  .sources {
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .sources ol {
+    counter-reset: source;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+  }
+
+  .sources li {
+    counter-increment: source;
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+  }
+
+  .sources li::before {
+    content: '[' counter(source) '] ';
+    font-family: var(--font-mono);
+    color: var(--color-text-muted);
+  }
+
+  .sources a {
+    color: var(--color-text-secondary);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    text-decoration-color: var(--color-border-strong);
+    transition: color 0.15s ease;
+  }
+
+  .sources a:hover {
+    color: var(--color-accent);
+  }
+</style>

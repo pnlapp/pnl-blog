@@ -1,0 +1,182 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import ArticleMeta from '../components/ArticleMeta.astro';
+import KeyTakeaways from '../components/KeyTakeaways.astro';
+import SourceList from '../components/SourceList.astro';
+import FaqSection from '../components/FaqSection.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import RelatedArticles from '../components/RelatedArticles.astro';
+import ArticleNav from '../components/ArticleNav.astro';
+import AppCta from '../components/AppCta.astro';
+import { getCanonicalURL, getAbsoluteURL } from '../utils/seo';
+import { getSection } from '../utils/sections';
+import { getPublishedEntries, getRelatedEntries, getAdjacentEntries } from '../utils/content';
+import { getReadingTime } from '../utils/readingTime';
+import { SITE_URL, ORGANIZATION_NAME } from '../utils/site';
+
+interface Props {
+  entry: CollectionEntry<'blog'>;
+}
+
+const { entry } = Astro.props;
+const {
+  title,
+  description,
+  canonicalURL,
+  author,
+  reviewer,
+  publishDate,
+  updatedDate,
+  category,
+  tags,
+  featuredImage,
+  featuredImageAlt,
+  keyTakeaways,
+  sources,
+  faq,
+} = entry.data;
+
+const section = getSection(entry.data.contentType);
+const resolvedCanonicalURL = getCanonicalURL(Astro.url.pathname, canonicalURL);
+const readingTime = getReadingTime(entry.body ?? '');
+
+const allEntries = await getPublishedEntries();
+const related = getRelatedEntries(entry, allEntries, 3);
+const sectionEntries = allEntries.filter((e) => e.data.contentType === entry.data.contentType);
+const { prev, next } = getAdjacentEntries(entry, sectionEntries);
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': entry.data.contentType === 'news' ? 'NewsArticle' : 'Article',
+  headline: title,
+  description,
+  author: { '@type': 'Person', name: author },
+  ...(reviewer && { reviewedBy: { '@type': 'Person', name: reviewer } }),
+  datePublished: publishDate.toISOString(),
+  ...(updatedDate && { dateModified: updatedDate.toISOString() }),
+  ...(featuredImage && { image: getAbsoluteURL(featuredImage) }),
+  mainEntityOfPage: resolvedCanonicalURL,
+  publisher: {
+    '@type': 'Organization',
+    name: ORGANIZATION_NAME,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${SITE_URL}/favicon.svg`,
+    },
+  },
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalURL={canonicalURL}
+  image={featuredImage}
+  imageAlt={featuredImageAlt}
+  type="article"
+  publishedTime={publishDate.toISOString()}
+  modifiedTime={updatedDate?.toISOString()}
+  noindex={entry.data.draft}
+>
+  <article class="container article">
+    <Breadcrumbs items={[{ label: section.label, path: section.path }, { label: title, path: Astro.url.pathname }]} />
+
+    <header class="article-header">
+      <a href={section.path} class="eyebrow section-link">{section.label}</a>
+      <h1>{title}</h1>
+      <p class="deck">{description}</p>
+      <ArticleMeta
+        author={author}
+        reviewer={reviewer}
+        publishDate={publishDate}
+        updatedDate={updatedDate}
+        category={category}
+        tags={tags}
+        readingTime={readingTime}
+      />
+    </header>
+
+    {
+      featuredImage && (
+        <img class="featured-image" src={featuredImage} alt={featuredImageAlt ?? ''} />
+      )
+    }
+
+    <div class="article-columns">
+      <KeyTakeaways items={keyTakeaways} />
+
+      <div class="prose article-body">
+        <slot />
+      </div>
+
+      <SourceList sources={sources} />
+      <FaqSection faq={faq} />
+    </div>
+
+    <div class="article-extras">
+      <RelatedArticles entries={related} />
+      <ArticleNav prev={prev} next={next} />
+      <AppCta />
+    </div>
+  </article>
+
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+</BaseLayout>
+
+<style>
+  .article {
+    padding-block: var(--space-8) var(--space-10);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .article-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    max-width: var(--prose-max);
+    margin-top: var(--space-2);
+  }
+
+  .section-link {
+    text-decoration: none;
+  }
+
+  .article-header h1 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    color: var(--color-text);
+  }
+
+  .deck {
+    font-size: 1.1875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  .featured-image {
+    width: 100%;
+    max-width: 960px;
+    max-height: 480px;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    margin-top: var(--space-3);
+  }
+
+  .article-columns {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    margin-top: var(--space-4);
+    max-width: var(--prose-max);
+  }
+
+  .article-extras {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    margin-top: var(--space-6);
+  }
+</style>

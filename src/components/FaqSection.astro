@@ -1,0 +1,93 @@
+---
+interface Props {
+  faq: { question: string; answer: string }[];
+}
+
+const { faq } = Astro.props;
+
+const faqSchema =
+  faq.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faq.map((item) => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: item.answer,
+          },
+        })),
+      }
+    : null;
+---
+
+{
+  faq.length > 0 && (
+    <section class="faq" aria-label="Frequently asked questions">
+      <p class="eyebrow">FAQ</p>
+      <div class="items">
+        {faq.map((item) => (
+          <details>
+            <summary>{item.question}</summary>
+            <p>{item.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+{faqSchema && <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+
+<style>
+  .faq {
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .items {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+  }
+
+  details {
+    padding: var(--space-4) var(--space-5);
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+  }
+
+  summary {
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--color-text);
+    list-style: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary::before {
+    content: '+';
+    display: inline-block;
+    width: 1em;
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+  }
+
+  details[open] summary::before {
+    content: '−';
+  }
+
+  details p {
+    margin-top: var(--space-3);
+    padding-left: 1em;
+    color: var(--color-text-secondary);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+</style>

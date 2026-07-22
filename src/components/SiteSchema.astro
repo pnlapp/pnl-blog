@@ -1,0 +1,25 @@
+---
+import { SITE_TITLE, SITE_URL, APP_URL, ORGANIZATION_NAME } from '../utils/site';
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: ORGANIZATION_NAME,
+  url: APP_URL,
+  logo: `${SITE_URL}/favicon.svg`,
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE_TITLE,
+  url: SITE_URL,
+  publisher: {
+    '@type': 'Organization',
+    name: ORGANIZATION_NAME,
+  },
+};
+---
+
+<script is:inline type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />

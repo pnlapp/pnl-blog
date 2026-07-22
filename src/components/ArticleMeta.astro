@@ -1,0 +1,77 @@
+---
+interface Props {
+  author: string;
+  reviewer?: string;
+  publishDate: Date;
+  updatedDate?: Date;
+  category: string;
+  tags: string[];
+  readingTime: number;
+}
+
+const { author, reviewer, publishDate, updatedDate, category, tags, readingTime } = Astro.props;
+
+// Avoid rendering a tag that just duplicates the category chip (e.g. category
+// "Risk Management" and a tag "risk management" from the same article).
+const displayTags = tags.filter((tag) => tag.toLowerCase() !== category.toLowerCase());
+---
+
+<div class="article-meta">
+  <p class="byline">
+    By <span class="name">{author}</span>
+    {reviewer && <span class="reviewer"> &middot; Reviewed by {reviewer}</span>}
+  </p>
+  <p class="dates">
+    <time datetime={publishDate.toISOString()}>
+      {publishDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+    </time>
+    {
+      updatedDate && (
+        <time datetime={updatedDate.toISOString()}>
+          {' '}
+          &middot; Updated{' '}
+          {updatedDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </time>
+      )
+    }
+    <span> &middot; {readingTime} min read</span>
+  </p>
+  <div class="chips">
+    <span class="tag">{category}</span>
+    {displayTags.map((tag) => <span class="tag muted">{tag}</span>)}
+  </div>
+</div>
+
+<style>
+  .article-meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .byline {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+  }
+
+  .name {
+    color: var(--color-text);
+  }
+
+  .dates {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-2);
+  }
+
+  .tag.muted {
+    color: var(--color-text-muted);
+  }
+</style>

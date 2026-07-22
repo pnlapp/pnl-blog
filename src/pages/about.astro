@@ -1,0 +1,145 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AppCta from '../components/AppCta.astro';
+import { SECTIONS } from '../utils/sections';
+import { EDITORIAL_DISCLAIMER } from '../utils/site';
+---
+
+<BaseLayout
+  title="About"
+  description="PnL Blog is the editorial publication operated by PnL App, covering market news, trading education, trading psychology, glossary terms, and behavioral research."
+>
+  <div class="container section about">
+    <header class="about-header">
+      <p class="eyebrow">About</p>
+      <h1>About PnL Blog</h1>
+      <p class="intro">
+        PnL Blog is the editorial publication operated by{' '}
+        <a href="https://pnlapp.co" target="_blank" rel="noopener">PnL App</a>, a trading
+        performance and psychology app. This publication exists to give traders a place to read,
+        outside the app itself, that goes deeper into the ideas the app is built on.
+      </p>
+    </header>
+
+    <section class="block">
+      <h2>Editorial focus</h2>
+      <p>
+        Coverage is organized into five sections, each with a different job to do. News tracks
+        market events as they happen. Education breaks down the mechanics of trading into skills
+        you can practice. Trading Psychology looks at the behavioral side of trading, the part
+        that shows up after the setup is already chosen. Glossary defines the terms used
+        throughout the other four sections. Research shares original analysis of trader behavior
+        and market structure.
+      </p>
+      <ul class="focus-list">
+        {
+          SECTIONS.map((section) => (
+            <li>
+              <a href={section.path} class="focus-label">
+                {section.label}
+              </a>
+              <span class="focus-description">{section.description}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="block notice card">
+      <p class="eyebrow">Not Financial Advice</p>
+      <p class="notice-text">{EDITORIAL_DISCLAIMER}</p>
+    </section>
+
+    <AppCta
+      heading="Built alongside the PnL App."
+      body="This publication is written by the same team behind PnL App. If the ideas here are useful on the page, the app is where they turn into a daily practice."
+      ctaLabel="Visit PnL App"
+    />
+  </div>
+</BaseLayout>
+
+<style>
+  .about {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+
+  .about-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    max-width: var(--prose-max);
+  }
+
+  .about-header h1 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    color: var(--color-text);
+  }
+
+  .intro {
+    font-size: 1.125rem;
+    line-height: 1.65;
+    color: var(--color-text-secondary);
+  }
+
+  .intro a {
+    color: var(--color-accent);
+  }
+
+  .block {
+    max-width: var(--prose-max);
+  }
+
+  .block h2 {
+    font-size: 1.5rem;
+    color: var(--color-text);
+    margin-bottom: var(--space-4);
+  }
+
+  .block p {
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: var(--color-text-secondary);
+  }
+
+  .focus-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-top: var(--space-5);
+  }
+
+  .focus-list li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-3);
+    padding-block: var(--space-3);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .focus-label {
+    font-weight: 500;
+    color: var(--color-text);
+    text-decoration: none;
+    min-width: 9rem;
+  }
+
+  .focus-label:hover {
+    color: var(--color-accent);
+  }
+
+  .focus-description {
+    color: var(--color-text-secondary);
+    font-size: 0.9375rem;
+  }
+
+  .notice {
+    padding: var(--space-6);
+  }
+
+  .notice-text {
+    margin-top: var(--space-3);
+  }
+</style>

@@ -1,0 +1,167 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleGrid from '../../components/ArticleGrid.astro';
+import { SECTIONS } from '../../utils/sections';
+import { EDITORIAL_PRINCIPLES, ORGANIZATION_NAME, APP_URL } from '../../utils/site';
+import { getPublishedEntries, getHouseEntries, sortByPublishDate } from '../../utils/content';
+
+const entries = sortByPublishDate(getHouseEntries(await getPublishedEntries()));
+
+const profileSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  mainEntity: {
+    '@type': 'Organization',
+    name: ORGANIZATION_NAME,
+    url: APP_URL,
+    description:
+      'The in-house editorial team writing and publishing PnL Blog, the editorial publication operated by PnL App.',
+  },
+};
+---
+
+<BaseLayout
+  title="PnL App Editorial Team"
+  description="The in-house editorial team behind PnL Blog: areas of coverage, editorial principles, and the articles they have written."
+>
+  <div class="container section author-page">
+    <header class="author-header">
+      <p class="eyebrow">Author</p>
+      <h1>PnL App Editorial Team</h1>
+      <p class="intro">
+        Articles bylined to the PnL App Editorial Team are written in-house by the people who
+        build <a href="https://pnlapp.co" target="_blank" rel="noopener">PnL App</a>. This byline
+        is used for house reporting and research rather than pieces credited to a single named
+        writer.
+      </p>
+    </header>
+
+    <section class="block">
+      <h2>Areas of coverage</h2>
+      <ul class="coverage-list">
+        {
+          SECTIONS.map((section) => (
+            <li>
+              <a href={section.path} class="coverage-label">
+                {section.label}
+              </a>
+              <span class="coverage-description">{section.description}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="block">
+      <h2>Editorial principles</h2>
+      <ul class="principles-list">
+        {EDITORIAL_PRINCIPLES.map((principle) => <li>{principle}</li>)}
+      </ul>
+    </section>
+
+    <section class="block wide">
+      <h2>Articles by the PnL App Editorial Team</h2>
+      <ArticleGrid
+        entries={entries}
+        emptyMessage="No articles bylined to the editorial team have been published yet."
+      />
+    </section>
+  </div>
+
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(profileSchema)} />
+</BaseLayout>
+
+<style>
+  .author-page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+
+  .author-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    max-width: var(--prose-max);
+  }
+
+  .author-header h1 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    color: var(--color-text);
+  }
+
+  .intro {
+    font-size: 1.125rem;
+    line-height: 1.65;
+    color: var(--color-text-secondary);
+  }
+
+  .intro a {
+    color: var(--color-accent);
+  }
+
+  .block {
+    max-width: var(--prose-max);
+  }
+
+  .block.wide {
+    max-width: none;
+  }
+
+  .block h2 {
+    font-size: 1.5rem;
+    color: var(--color-text);
+    margin-bottom: var(--space-4);
+  }
+
+  .coverage-list,
+  .principles-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .coverage-list li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-3);
+    padding-block: var(--space-3);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .coverage-label {
+    font-weight: 500;
+    color: var(--color-text);
+    text-decoration: none;
+    min-width: 9rem;
+  }
+
+  .coverage-label:hover {
+    color: var(--color-accent);
+  }
+
+  .coverage-description {
+    color: var(--color-text-secondary);
+    font-size: 0.9375rem;
+  }
+
+  .principles-list li {
+    position: relative;
+    padding-left: var(--space-5);
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .principles-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-accent);
+  }
+</style>

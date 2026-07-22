@@ -1,0 +1,66 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  prev: CollectionEntry<'blog'> | null;
+  next: CollectionEntry<'blog'> | null;
+}
+
+const { prev, next } = Astro.props;
+---
+
+{
+  (prev || next) && (
+    <nav class="article-nav" aria-label="Article navigation">
+      {prev ? (
+        <a href={`/${prev.data.contentType}/${prev.data.slug}`} class="card link prev">
+          <span class="eyebrow">Previous</span>
+          <span class="title">{prev.data.title}</span>
+        </a>
+      ) : (
+        <span />
+      )}
+      {next ? (
+        <a href={`/${next.data.contentType}/${next.data.slug}`} class="card link next">
+          <span class="eyebrow">Next</span>
+          <span class="title">{next.data.title}</span>
+        </a>
+      ) : (
+        <span />
+      )}
+    </nav>
+  )
+}
+
+<style>
+  .article-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+  }
+
+  .link {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-5);
+    text-decoration: none;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+
+  .link:hover {
+    border-color: var(--color-border-strong);
+    background: var(--color-bg-elevated-2);
+  }
+
+  .next {
+    text-align: right;
+    align-items: flex-end;
+  }
+
+  .title {
+    color: var(--color-text);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+  }
+</style>

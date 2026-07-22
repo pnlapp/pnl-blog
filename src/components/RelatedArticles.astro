@@ -1,0 +1,30 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import ArticleGrid from './ArticleGrid.astro';
+
+interface Props {
+  entries: CollectionEntry<'blog'>[];
+}
+
+const { entries } = Astro.props;
+---
+
+{
+  entries.length > 0 && (
+    <section class="related" aria-label="Related articles">
+      <p class="eyebrow">Related Reading</p>
+      <ArticleGrid entries={entries} />
+    </section>
+  )
+}
+
+<style>
+  .related {
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .related .eyebrow {
+    margin-bottom: var(--space-5);
+  }
+</style>

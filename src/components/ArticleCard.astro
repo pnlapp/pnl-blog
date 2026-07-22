@@ -1,0 +1,126 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getReadingTime } from '../utils/readingTime';
+import { buildSearchIndex } from '../utils/content';
+
+interface Props {
+  entry: CollectionEntry<'blog'>;
+  /** Larger, two-column presentation used for a single hero/featured slot. */
+  featured?: boolean;
+}
+
+const { entry, featured = false } = Astro.props;
+const { title, description, publishDate, category, featuredImage, featuredImageAlt } = entry.data;
+const readingTime = getReadingTime(entry.body ?? '');
+const Tag = featured ? 'div' : 'li';
+---
+
+<Tag class:list={['card', { featured }]} data-search={buildSearchIndex(entry)}>
+  <a href={`/${entry.data.contentType}/${entry.data.slug}`} class="link">
+    {
+      featuredImage && (
+        <img class="image" src={featuredImage} alt={featuredImageAlt ?? ''} loading="lazy" />
+      )
+    }
+    <div class="body">
+      <p class="eyebrow">{category}</p>
+      <h3>{title}</h3>
+      <p class="description">{description}</p>
+      <p class="meta">
+        <time datetime={publishDate.toISOString()}>
+          {publishDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </time>
+        <span aria-hidden="true">&middot;</span>
+        <span>{readingTime} min read</span>
+      </p>
+    </div>
+  </a>
+</Tag>
+
+<style>
+  .card {
+    overflow: hidden;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+
+  .card:hover {
+    border-color: var(--color-border-strong);
+    background: var(--color-bg-elevated-2);
+  }
+
+  .link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .image {
+    width: 100%;
+    height: 12rem;
+    object-fit: cover;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-6);
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--color-text);
+  }
+
+  .description {
+    color: var(--color-text-secondary);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+
+  .meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin-top: var(--space-2);
+  }
+
+  /* Featured variant: two-column on wide screens, larger type */
+  .featured .link {
+    gap: 0;
+  }
+
+  @media (min-width: 800px) {
+    .featured .link {
+      flex-direction: row;
+    }
+
+    .featured .image {
+      width: 50%;
+      height: auto;
+      border-bottom: none;
+      border-right: 1px solid var(--color-border);
+    }
+
+    .featured .body {
+      width: 50%;
+      justify-content: center;
+      padding: var(--space-8);
+    }
+  }
+
+  .featured h3 {
+    font-size: 1.75rem;
+  }
+
+  .featured .description {
+    font-size: 1rem;
+  }
+</style>

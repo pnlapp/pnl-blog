@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AppCta from '../components/AppCta.astro';
+import { SECTIONS } from '../utils/sections';
+---
+
+<BaseLayout
+  title="Page Not Found"
+  description="This page could not be found. Explore PnL Blog's News, Education, Trading Psychology, Glossary, and Research sections instead."
+  noindex
+>
+  <div class="container section not-found">
+    <p class="eyebrow">404</p>
+    <h1>This page does not exist.</h1>
+    <p class="intro">
+      The link may be broken, or the page may have moved. Head back home, or jump straight to a
+      section below.
+    </p>
+    <a href="/" class="btn btn-accent home-link">Back to Home</a>
+
+    <ul class="section-list">
+      {
+        SECTIONS.map((section) => (
+          <li>
+            <a href={section.path} class="section-label">
+              {section.label}
+            </a>
+            <span class="section-description">{section.description}</span>
+          </li>
+        ))
+      }
+    </ul>
+
+    <AppCta />
+  </div>
+</BaseLayout>
+
+<style>
+  .not-found {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-5);
+    max-width: var(--prose-max);
+  }
+
+  h1 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    color: var(--color-text);
+  }
+
+  .intro {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+  }
+
+  .home-link {
+    margin-top: var(--space-2);
+  }
+
+  .section-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-top: var(--space-6);
+    width: 100%;
+  }
+
+  .section-list li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-3);
+    padding-block: var(--space-3);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .section-label {
+    font-weight: 500;
+    color: var(--color-text);
+    text-decoration: none;
+    min-width: 9rem;
+  }
+
+  .section-label:hover {
+    color: var(--color-accent);
+  }
+
+  .section-description {
+    color: var(--color-text-secondary);
+    font-size: 0.9375rem;
+  }
+</style>

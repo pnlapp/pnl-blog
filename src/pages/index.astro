@@ -1,11 +1,281 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import ArticleGrid from '../components/ArticleGrid.astro';
+import AppCta from '../components/AppCta.astro';
+import { SECTIONS } from '../utils/sections';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../utils/site';
+import { getPublishedEntries, sortByPublishDate } from '../utils/content';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const allEntries = sortByPublishDate(await getPublishedEntries());
+const featured = allEntries[0];
+
+const sectionPreviews = await Promise.all(
+  SECTIONS.map(async (section) => {
+    const entries = sortByPublishDate(await getPublishedEntries(section.contentType))
+      .filter((entry) => entry.id !== featured?.id)
+      .slice(0, 3);
+    return { section, entries };
+  })
+);
+
+const previewHeadings: Record<string, string> = {
+  news: 'Latest News',
+  education: 'Education',
+  'trading-psychology': 'Trading Psychology',
+  glossary: 'Glossary',
+  research: 'Research',
+};
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <section class="hero">
+    <div class="container hero-inner">
+      <p class="eyebrow-dot">
+        <span class="dot" aria-hidden="true"></span>
+        {
+          SECTIONS.map((section, i) => (
+            <>
+              <a href={section.path}>{section.label}</a>
+              {i < SECTIONS.length - 1 && <span aria-hidden="true"> &middot; </span>}
+            </>
+          ))
+        }
+      </p>
+      <h1>Trade with a <mark class="highlight">clearer</mark> head.</h1>
+      <p class="deck">{SITE_DESCRIPTION}</p>
+      <div class="hero-actions">
+        <a href="#featured" class="btn">Start Reading</a>
+        <a href="https://pnlapp.co" class="btn btn-accent" target="_blank" rel="noopener">
+          Get PnL App
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="container section coverage">
+    <p class="eyebrow">Coverage</p>
+    <h2>One publication, five lenses on the market.</h2>
+    <p class="intro">
+      PnL App covers the full picture: market news that explains what is moving and why, trading
+      education that builds real skill, trading psychology that addresses the mind behind the
+      trade, a glossary that defines the language of the markets, and behavioral research grounded
+      in real trading data.
+    </p>
+    <ul class="pillars">
+      {
+        SECTIONS.map((section) => (
+          <li>
+            <a href={section.path}>
+              <span class="pillar-label">{section.label}</span>
+              <span class="pillar-description">{section.description}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  {
+    featured && (
+      <div id="featured" class="container section featured-section">
+        <p class="eyebrow">Featured</p>
+        <ArticleCard entry={featured} featured />
+      </div>
+    )
+  }
+
+  {
+    !featured && (
+      <div id="featured" class="container section featured-section">
+        <p class="eyebrow">Featured</p>
+        <p class="empty card">
+          Our first articles are in production. Check back soon, or explore the sections below.
+        </p>
+      </div>
+    )
+  }
+
+  {
+    sectionPreviews.map(({ section, entries }) => (
+      <div class="container section">
+        <div class="section-preview-header">
+          <div>
+            <h2>{previewHeadings[section.contentType]}</h2>
+            <p class="section-preview-description">{section.description}</p>
+          </div>
+          <a href={section.path} class="btn">
+            View all
+          </a>
+        </div>
+        <ArticleGrid
+          entries={entries}
+          emptyMessage={`New ${section.label.toLowerCase()} content is on the way.`}
+        />
+      </div>
+    ))
+  }
+
+  <div class="container section">
+    <AppCta />
+  </div>
+</BaseLayout>
+
+<style>
+  .hero {
+    background: var(--gradient-hero);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .hero-inner {
+    padding-block: var(--space-10);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-5);
+    max-width: 44rem;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .eyebrow-dot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.4em;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  .eyebrow-dot .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    flex-shrink: 0;
+  }
+
+  .eyebrow-dot a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .eyebrow-dot a:hover {
+    color: var(--color-accent);
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 5.5vw, 3.75rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+  }
+
+  .highlight {
+    background: var(--color-accent);
+    color: var(--color-bg);
+    padding: 0 0.2em;
+    border-radius: 4px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+
+  .hero .deck {
+    font-size: 1.1875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-4);
+    margin-top: var(--space-3);
+  }
+
+  .coverage h2 {
+    font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+    margin-top: var(--space-3);
+    max-width: 36rem;
+  }
+
+  .coverage .intro {
+    margin-top: var(--space-5);
+    max-width: var(--prose-max);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: var(--color-text-secondary);
+  }
+
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: var(--space-4);
+    margin-top: var(--space-7);
+  }
+
+  .pillars a {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-5);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+
+  .pillars a:hover {
+    border-color: var(--color-border-strong);
+    background: var(--color-bg-elevated);
+  }
+
+  .pillar-label {
+    font-weight: 500;
+    color: var(--color-text);
+  }
+
+  .pillar-description {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+  }
+
+  .featured-section .eyebrow {
+    margin-bottom: var(--space-4);
+  }
+
+  .empty {
+    padding: var(--space-6);
+    color: var(--color-text-muted);
+    font-size: 0.9375rem;
+  }
+
+  .section-preview-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+  }
+
+  .section-preview-header h2 {
+    font-size: 1.5rem;
+    color: var(--color-text);
+  }
+
+  .section-preview-description {
+    margin-top: var(--space-2);
+    color: var(--color-text-secondary);
+    font-size: 0.9375rem;
+  }
+
+</style>

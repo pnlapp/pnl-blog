@@ -1,0 +1,129 @@
+---
+import { SECTIONS } from '../utils/sections';
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="container bar">
+    <a href="/" class="wordmark">
+      pnl<span class="dot">.</span> <span class="wordmark-sub">blog</span>
+    </a>
+    <div class="nav-group">
+      <nav aria-label="Sections">
+        <ul>
+          {
+            SECTIONS.map((section) => (
+              <li>
+                <a
+                  href={section.path}
+                  aria-current={currentPath.startsWith(section.path) ? 'page' : undefined}
+                >
+                  {section.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+      <a href="/search" class="search-link" aria-label="Search articles" aria-current={currentPath === '/search' ? 'page' : undefined}>
+        <svg viewBox="0 0 20 20" width="18" height="18" fill="none" aria-hidden="true">
+          <circle cx="9" cy="9" r="6.5" stroke="currentColor" stroke-width="1.5" />
+          <path d="M18 18L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+        </svg>
+        <span class="search-label">Search</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-bg);
+  }
+
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-4) var(--space-6);
+    padding-block: var(--space-5);
+  }
+
+  .wordmark {
+    display: flex;
+    align-items: baseline;
+    gap: 0.35em;
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    color: var(--color-text);
+    white-space: nowrap;
+  }
+
+  .dot {
+    color: var(--color-accent);
+  }
+
+  .wordmark-sub {
+    color: var(--color-text-muted);
+    font-weight: 400;
+  }
+
+  nav ul {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3) var(--space-6);
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  nav a:hover {
+    color: var(--color-text);
+  }
+
+  nav a[aria-current='page'] {
+    color: var(--color-accent);
+  }
+
+  .nav-group {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+    flex-wrap: wrap;
+  }
+
+  .search-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .search-link:hover,
+  .search-link[aria-current='page'] {
+    color: var(--color-accent);
+  }
+
+  .search-label {
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 480px) {
+    .search-label {
+      display: none;
+    }
+  }
+</style>

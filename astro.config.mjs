@@ -6,5 +6,11 @@ import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [sitemap(), mdx()]
+  site: 'https://blog.pnlapp.co',
+  integrations: [
+    sitemap({
+      filter: (page) => !page.endsWith('/rss.xml')
+    }),
+    mdx()
+  ]
 });
