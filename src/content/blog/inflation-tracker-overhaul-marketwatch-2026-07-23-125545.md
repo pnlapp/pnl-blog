@@ -1,14 +1,14 @@
 ---
-title: "Fed’s favorite inflation tracker is getting an overhaul — what readers should know"
+title: "Fed's Favorite Inflation Tracker Is Getting an Overhaul"
 description: "Overview of an inflation tracker overhaul and its implications for traders and investors, focusing on understanding what changes mean for market readings and decision making."
 slug: "inflation-tracker-overhaul-marketwatch"
 contentType: "education"
-category: "education"
+category: "Economic Indicators"
 tags: ["inflation", "economic indicators", "trading"]
 publishDate: "2026-07-23"
 author: "PnL App Team"
-featuredImage: https://images.pexels.com/photos/19867469/pexels-photo-19867469.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
-featuredImageAlt: Wooden scrabble tiles arrange to spell 'Food Inflation' on a rustic wooden surface, conceptually depicting rising food prices.
+featuredImage: "https://images.pexels.com/photos/19867469/pexels-photo-19867469.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+featuredImageAlt: "Wooden scrabble tiles arranged to spell Food Inflation on a rustic wooden surface"
 draft: false
 sources: [{"title": "Fed’s favorite inflation tracker is getting an overhaul — just as the central bank weighs interest-rate hikes. What’s going on?", "url": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxNT2V5VWxWNGVTOWhwdTFEVTYtVzVCenNfY3pmM0VZbzl2d3BNbWc1TVl0QTNTck9FX2s2ck50MHZNcGN1V0dvZmlDSERQYVVway0xbXdLamFOYmFEbGc3WUVWMHBKVjM5VUNjQmlnM1h0RWd3bUVSWmtKTjRyUXZIV2FxYUJmZlVnclpBYm5yYWdDMzFTY1N5T2xtSlZ2dVM1RS1FcUFZUmluM0k5WGt1Ri1YalZJZ1FtTTVjQXhhRW9KSnhRbWZBR1FCems1Qkp5Y1NPaDAxVHgxbkJmQU9Uc2lGcHFwUE56TXRiTG9hTW4wcmVxQlJB"}]
 keyTakeaways: ["The article discusses an overhaul to the inflation tracker favored by the Fed, signalling potential changes in how inflation data is interpreted.", "Understanding changes to widely watched indicators helps traders adjust short term strategies as data releases evolve.", "Investors may need to reassess assumptions about the timing and impact of inflation on policy decisions.", "Grasping the mechanics of inflation measurement aids in evaluating market reactions to new data.", "Remain attentive to how revisions or methodology updates influence channeling of monetary policy expectations."]
@@ -64,7 +64,3 @@ Potential developments to watch include forthcoming methodological notes from th
 ## Conclusion
 
 An overhaul to a widely watched inflation tracker signals a shift in how price dynamics are measured and interpreted. For traders and investors, understanding that such changes can influence policy expectations and market pricing is key to maintaining a disciplined approach during data-driven periods of transition.
-
-## Trade with more awareness
-
-PnL App helps traders review their decisions, understand emotional patterns, and develop more disciplined trading habits through behavioral journaling and trading analytics. [Explore PnL App](https://pnlapp.co)

@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import ArticleGrid from '../components/ArticleGrid.astro';
 import AppCta from '../components/AppCta.astro';
+import Newsletter from '../components/Newsletter.astro';
 import { SECTIONS } from '../utils/sections';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../utils/site';
 import { getPublishedEntries, sortByPublishDate } from '../utils/content';
@@ -115,6 +116,10 @@ const previewHeadings: Record<string, string> = {
       </div>
     ))
   }
+
+  <div class="container section">
+    <Newsletter />
+  </div>
 
   <div class="container section">
     <AppCta />

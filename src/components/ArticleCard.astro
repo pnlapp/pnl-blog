@@ -10,22 +10,41 @@ interface Props {
 }
 
 const { entry, featured = false } = Astro.props;
-const { title, description, publishDate, category, featuredImage, featuredImageAlt } = entry.data;
+const { title, description, publishDate, category, tags, featuredImage, featuredImageAlt } =
+  entry.data;
 const readingTime = getReadingTime(entry.body ?? '');
 const Tag = featured ? 'div' : 'li';
+const visibleTags = tags.slice(0, 3);
 ---
 
 <Tag class:list={['card', { featured }]} data-search={buildSearchIndex(entry)}>
   <a href={`/${entry.data.contentType}/${entry.data.slug}`} class="link">
     {
-      featuredImage && (
+      featuredImage ? (
         <img class="image" src={featuredImage} alt={featuredImageAlt ?? ''} loading="lazy" />
+      ) : (
+        featured && (
+          <div class="image image-fallback" aria-hidden="true">
+            <span class="fallback-mark">
+              pnl<span class="fallback-dot">.</span>
+            </span>
+          </div>
+        )
       )
     }
     <div class="body">
       <p class="eyebrow">{category}</p>
       <h3>{title}</h3>
       <p class="description">{description}</p>
+      {
+        visibleTags.length > 0 && (
+          <ul class="tags">
+            {visibleTags.map((tag) => (
+              <li>{tag}</li>
+            ))}
+          </ul>
+        )
+      }
       <p class="meta">
         <time datetime={publishDate.toISOString()}>
           {publishDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
@@ -63,6 +82,25 @@ const Tag = featured ? 'div' : 'li';
     border-bottom: 1px solid var(--color-border);
   }
 
+  .image-fallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-hero);
+  }
+
+  .fallback-mark {
+    font-family: var(--font-mono);
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--color-border-strong);
+  }
+
+  .fallback-dot {
+    color: var(--color-accent);
+  }
+
   .body {
     display: flex;
     flex-direction: column;
@@ -80,6 +118,22 @@ const Tag = featured ? 'div' : 'li';
     color: var(--color-text-secondary);
     font-size: 0.9375rem;
     line-height: 1.6;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .tags li {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.02em;
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-pill);
+    padding: 0.2em 0.65em;
   }
 
   .meta {

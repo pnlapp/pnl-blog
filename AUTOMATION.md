@@ -5,6 +5,45 @@ articles to this site. It does not configure or create a Make.com scenario. It o
 describes the file format the Astro project expects, so a scenario can be built against it
 reliably.
 
+This file also documents the one runtime secret the site uses (the newsletter endpoint,
+below). Like this whole document, it is internal only: nothing in `src/pages` links to it,
+and it is never copied into `public/` or the built `dist/` output.
+
+## Newsletter endpoint (Google Apps Script)
+
+The homepage newsletter form posts an email address directly from the browser to a Google
+Apps Script Web App, which is expected to write it to a Google Sheet. There is no backend
+in this project, the form's JavaScript calls the endpoint directly.
+
+The endpoint URL is read from `PUBLIC_NEWSLETTER_ENDPOINT` and is never hardcoded in any
+committed file:
+
+- **Locally**: copy `.env.example` to `.env` and fill in the real URL. `.env` is gitignored.
+- **In production**: the GitHub Actions workflow (`.github/workflows/deploy.yml`) injects it
+  from a GitHub encrypted repository secret named `NEWSLETTER_ENDPOINT`
+  (Settings → Secrets and variables → Actions → New repository secret). The workflow maps
+  it to `PUBLIC_NEWSLETTER_ENDPOINT` at build time.
+
+If the variable is not set, the `Newsletter` component renders nothing, there is no broken
+form and no placeholder shown to visitors.
+
+**Why the `PUBLIC_` prefix, given secrets should not use it**: this is not a credential.
+`PUBLIC_` vars are inlined into the client bundle, which is required here since the form has
+to call the endpoint directly from the browser, the URL is visible in the page's network
+requests to any visitor regardless of how it is stored. What `PUBLIC_NEWSLETTER_ENDPOINT`
+protects against is different: it keeps that URL out of the git history and off GitHub, so it
+is not sitting in a public repository for anyone scanning source code to find. A real secret
+(an API key or token that grants read access or elevated privileges) should never use a
+`PUBLIC_` var. A write-only public form target like this one is the intended use case for one.
+
+**Known limitation**: Apps Script Web Apps generally do not return usable CORS headers, so
+the form submits with `fetch(..., { mode: 'no-cors' })`. This means the site cannot read the
+response or confirm the script actually succeeded, only that the request was sent. A basic
+honeypot field is included to filter out unsophisticated bots, but the endpoint has no rate
+limiting of its own. If it starts receiving spam, that needs to be handled on the Apps
+Script side (for example, validating a shared token in the payload) or by fronting it with a
+service that adds rate limiting.
+
 ## How publishing works, in one sentence
 
 Make.com creates one Markdown file per article inside `src/content/blog/`, in the exact
@@ -141,7 +180,17 @@ uses). It must not be:
 - a path into this repository (Make.com does not commit binary files here)
 
 The build fails if `featuredImage` is present but is not a valid absolute URL, or if it is
-present without a matching `featuredImageAlt`.
+present without a matching `featuredImageAlt`. Always quote both fields, even though an
+unquoted plain URL happens to parse: `featuredImage: "https://..."`, not
+`featuredImage: https://...`.
+
+## Do not add a "download the app" call to action in the body
+
+Every article page automatically renders a PnL App call to action after the body content
+and the sources/FAQ sections. Do not add a closing `## Trade with more awareness`,
+`## Explore PnL App`, or similar section to the article body itself, it will duplicate the
+one the site already adds and the reader will see it twice. End the article body with the
+actual conclusion of the piece.
 
 ## 10. How Make.com should name the Markdown file
 

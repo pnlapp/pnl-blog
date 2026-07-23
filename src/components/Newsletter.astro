@@ -1,0 +1,175 @@
+---
+// The endpoint is never hardcoded here. It is read from an environment
+// variable that is only ever set as a GitHub Actions encrypted secret at
+// build time, never committed to the repository. See AUTOMATION.md.
+const endpoint = import.meta.env.PUBLIC_NEWSLETTER_ENDPOINT;
+---
+
+{
+  endpoint && (
+    <section class="newsletter card">
+      <p class="eyebrow">Stay Updated</p>
+      <h2>Get PnL Blog in your inbox.</h2>
+      <p class="deck">
+        New articles on trading psychology, education, and market news. No spam, unsubscribe
+        anytime.
+      </p>
+
+      <form id="newsletter-form" class="newsletter-form" novalidate>
+        <label for="newsletter-email" class="sr-only">
+          Email address
+        </label>
+        <input
+          id="newsletter-email"
+          name="email"
+          type="email"
+          placeholder="Your email"
+          autocomplete="email"
+          required
+        />
+        <input
+          type="text"
+          name="company"
+          class="hp-field"
+          tabindex="-1"
+          autocomplete="off"
+          aria-hidden="true"
+        />
+        <button type="submit" class="btn btn-accent">
+          Subscribe
+        </button>
+      </form>
+      <p id="newsletter-status" class="newsletter-status" role="status" aria-live="polite" />
+    </section>
+  )
+}
+
+<script>
+  const endpoint = import.meta.env.PUBLIC_NEWSLETTER_ENDPOINT;
+  const form = document.getElementById('newsletter-form') as HTMLFormElement | null;
+  const status = document.getElementById('newsletter-status');
+
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (!endpoint) return;
+
+    const emailInput = document.getElementById('newsletter-email') as HTMLInputElement | null;
+    const honeypot = form.querySelector<HTMLInputElement>('.hp-field');
+    const email = emailInput?.value.trim() ?? '';
+
+    // Silently drop likely-bot submissions instead of erroring, so a bot
+    // filling every field doesn't learn anything from the response.
+    if (honeypot?.value) return;
+    if (!email) return;
+
+    const submitButton = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+    if (submitButton) submitButton.disabled = true;
+    if (status) status.textContent = 'Submitting...';
+
+    try {
+      // Apps Script web apps do not return usable CORS headers, so the
+      // response is opaque here. A resolved fetch means the request went
+      // out; it does not confirm the script itself succeeded.
+      await fetch(endpoint, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({
+          email,
+          source: 'blog.pnlapp.co',
+          submittedAt: new Date().toISOString(),
+        }),
+      });
+      if (status) status.textContent = 'Thanks, you are subscribed.';
+      form.reset();
+    } catch {
+      if (status) status.textContent = 'Something went wrong. Please try again.';
+    } finally {
+      if (submitButton) submitButton.disabled = false;
+    }
+  });
+</script>
+
+<style>
+  .newsletter {
+    padding: var(--space-7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+    text-align: center;
+  }
+
+  .newsletter h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: var(--color-text);
+  }
+
+  .newsletter .deck {
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    max-width: 34rem;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .hp-field {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+  }
+
+  .newsletter-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-3);
+    width: 100%;
+    max-width: 28rem;
+    margin-top: var(--space-2);
+  }
+
+  .newsletter-form input[type='email'] {
+    flex: 1 1 14rem;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--color-text);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-pill);
+    padding: var(--space-3) var(--space-5);
+  }
+
+  .newsletter-form input[type='email']::placeholder {
+    color: var(--color-text-muted);
+  }
+
+  .newsletter-form input[type='email']:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  .newsletter-form button {
+    flex-shrink: 0;
+  }
+
+  .newsletter-status {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    min-height: 1em;
+  }
+</style>
