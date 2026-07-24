@@ -49,3 +49,5 @@ The pattern this table is meant to illustrate is directional: size and frequency
 Win rate gets most of the attention, but it does not capture what is happening to risk per trade. A trader can have an unchanged win rate while quietly increasing how much is at stake on each trade during a rough stretch, which changes the risk profile of the account even if the strategy itself has not changed at all.
 
 Tracking position size and trade frequency around your own losing streaks is a more direct way to catch this pattern than watching win rate alone, since the shift usually shows up in behavior well before it shows up in results.
+
+The [overtrading calculator](https://pnlapp.co/overtrading-calculator) is a quick way to check your own ratio of planned to actual trades on a rough day.

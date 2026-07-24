@@ -54,3 +54,5 @@ With a trading journal, you aren't just losing money. You are gaining the opport
 Consistency is the single most valuable trait in trading. A trader who follows the same process every day is more likely to succeed than someone who is constantly chasing the next exciting strategy.
 
 Every trade recorded, every impulse entry visible, every improvement measurable. Success in this game rarely comes from a secret strategy. It comes from understanding yourself and controlling your own behavior.
+
+PnL App's [emotional trading journal](https://pnlapp.co/emotional-trading-journal) tags the feeling behind every trade automatically, so this kind of self-awareness doesn't depend on remembering to write it down.

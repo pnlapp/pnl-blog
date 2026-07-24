@@ -51,3 +51,5 @@ You can't fix what you don't measure. Most traders have no idea that their post-
 This is where self-awareness becomes your real edge. When you see your patterns laid out in your own data, you stop guessing. You see exactly when your emotions started driving the decisions.
 
 The biggest enemy isn't the whales or the market makers. It's the person in the mirror.
+
+See how your own discipline holds up after a winning streak with the [trading discipline score](https://pnlapp.co/trading-discipline-score).

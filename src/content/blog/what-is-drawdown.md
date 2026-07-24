@@ -28,3 +28,5 @@ Maximum drawdown refers to the largest peak-to-trough decline over a given perio
 ## Recovery
 
 The percentage gain needed to recover from a drawdown grows faster than the drawdown itself. A moderate decline requires a proportionally larger gain just to return to the previous peak, which is one of the main reasons risk management focuses on limiting the size of losses rather than only on maximizing gains.
+
+For traders on evaluation accounts, drawdown is usually the metric that ends a challenge — the [prop trader journal](https://pnlapp.co/prop-trader-journal) guide covers what to track.

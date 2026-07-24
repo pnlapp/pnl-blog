@@ -53,3 +53,5 @@ The design is simple. The interface is clean, the statistics make sense, and the
 The PnL App won't make you rich overnight. Nothing will. But it gives you something more valuable than a guess: self-awareness. It forces you to face your weaknesses and see your real edge.
 
 For anyone serious about treating trading like a business rather than a gamble, it is worth using.
+
+Curious where your own psychology stands before you download it? Take the free [trading psychology assessment](https://pnlapp.co/trading-psychology-assessment).

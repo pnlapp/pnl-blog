@@ -51,3 +51,5 @@ The goal isn't just to see if you made money today. It's to understand why. Once
 One thing I've learned: the most boring thing will make you money.
 
 Stop hunting for a new strategy. Start looking at your own data. That's where the edge is.
+
+Not sure where to start? [Review your last few losing trades](https://pnlapp.co/how-to-review-losing-trades) using the same process.

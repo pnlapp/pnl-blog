@@ -55,3 +55,5 @@ He stopped blaming the whales and the algorithms. He unsubscribed from the signa
 Slowly, his account started growing. Not because he found a magical new strategy. He grew his account because tracking his own data finally forced him to look at his own behavior.
 
 Sometimes, the biggest breakthrough in a trading career is realizing the market was never the enemy. You just needed a mirror.
+
+Start with the same review process he eventually used: [how to review losing trades](https://pnlapp.co/how-to-review-losing-trades).

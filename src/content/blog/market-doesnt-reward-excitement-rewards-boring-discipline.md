@@ -43,3 +43,5 @@ If you want proof, start tracking your performance. You will almost certainly no
 The rest are usually impulsive entries taken out of boredom or impatience. The data makes one thing clear: your most boring trades are almost always your best trades.
 
 Those trades are calm. They follow the plan. The setup is clear. The risk is controlled. There is no rush, no excitement, just the quiet execution of a prepared plan.
+
+If boredom is what's driving your extra trades, the [overtrading calculator](https://pnlapp.co/overtrading-calculator) will show you the ratio.

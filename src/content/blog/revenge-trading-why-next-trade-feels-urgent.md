@@ -41,3 +41,5 @@ The feeling of urgency itself is useful information. It is not a reason to act f
 One of the more effective tools here is not psychological at all: a short, fixed cooldown period after any loss past a certain size, before a new position can be opened. It does not need to be long. Even a few minutes away from the screen is often enough to let the initial reaction pass and let you evaluate the next trade on its own terms.
 
 The point is not to eliminate the feeling. It is to build a small amount of friction between the feeling and the action, so the trade that follows a loss is chosen deliberately rather than reflexively.
+
+If you want to see whether this pattern actually shows up in your own trading, the [revenge trading test](https://pnlapp.co/revenge-trading-test) scores it in six questions.
