@@ -3,12 +3,12 @@ title: "Behavioral Finance: Biases, Emotions and Financial Behavior"
 description: "Explore how psychological factors shape investment decisions, common biases, and why understanding behavioral finance matters for traders and investors."
 slug: "behavioral-finance-biases-emotions-financial-behavior"
 contentType: "education"
-category: "education"
-tags: ["behavioral-finance", "investing-psychology", "biases"]
+category: "Trading Psychology"
+tags: ["behavioral finance", "cognitive bias", "investing psychology"]
 publishDate: "2026-07-24"
 author: "PnL App Team"
-featuredImage: https://images.pexels.com/photos/8719570/pexels-photo-8719570.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
-featuredImageAlt: An outdoor image of hands holding an empty black wallet, suggesting financial scarcity.
+featuredImage: "https://images.pexels.com/photos/8719570/pexels-photo-8719570.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+featuredImageAlt: "Hands holding an empty black wallet, suggesting financial scarcity"
 draft: false
 sources: [{"title": "Behavioral Finance: Biases, Emotions and Financial Behavior", "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1BZFE5OTI1NTZmcDFwVVR0YmNOUDdVeWdHeldDcEpfRi1hSHFfc0hqRFJvLU9jSnNNbHFlN0NCYUpSZ3gtdUFpNDhRcVY0ZVdHemF2ME5PdnZBaTNxS29PRXNfZ1V6eTdRalE?oc=5"}]
 keyTakeaways: ["Behavioral finance links psychological influences to how investors make financial choices and how markets can deviate from theoretical efficiency.", "Key concepts include mental accounting, herd behavior, emotional gaps, anchoring, and self-attribution which influence decision making.", "Biases such as confirmation, experiential (recency) and loss aversion help explain why investors hold losers too long or sell winners too early.", "Familiarity bias can limit diversification as investors prefer known or domestic investments over potentially better opportunities elsewhere.", "Understanding these biases provides a blueprint for recognizing irrational patterns and improving decision making in trading and investing."]
@@ -84,9 +84,3 @@ Readers should pay attention to how market participants react to news and events
 ## Conclusion
 
 Behavioral finance provides a framework to understand how emotions and cognitive limits influence financial choices and market dynamics. By identifying common biases and their effects, traders and investors can construct more disciplined approaches, improving decision making in the face of uncertainty.
-
-## Trade with more awareness
-
-PnL App helps traders understand their behavior, review decisions, identify emotional patterns, and build more disciplined trading habits.
-
-[Explore PnL App](https://pnlapp.co)
