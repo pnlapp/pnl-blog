@@ -7,6 +7,8 @@ category: "Decision Making"
 tags: ["analysis paralysis", "decision making", "discipline"]
 publishDate: "2026-07-02"
 author: "PnL App Team"
+featuredImage: "https://images.pexels.com/photos/8378723/pexels-photo-8378723.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+featuredImageAlt: "Chalk drawing with arrows representing tangled thought patterns"
 draft: false
 sources: []
 keyTakeaways:

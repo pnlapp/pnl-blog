@@ -7,6 +7,8 @@ category: "Trading Mindset"
 tags: ["gambling", "risk management", "trading mindset"]
 publishDate: "2026-07-15"
 author: "PnL App Team"
+featuredImage: "https://images.pexels.com/photos/1553831/pexels-photo-1553831.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+featuredImageAlt: "Stacked poker chips on a casino table"
 draft: false
 sources: []
 keyTakeaways:

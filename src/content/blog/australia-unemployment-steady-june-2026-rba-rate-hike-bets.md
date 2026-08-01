@@ -7,6 +7,8 @@ category: "Macro"
 tags: ["australia", "rba", "labor market", "interest rates"]
 publishDate: "2026-07-23"
 author: "PnL App Team"
+featuredImage: "https://images.pexels.com/photos/783681/pexels-photo-783681.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+featuredImageAlt: "Sydney Harbour Bridge and city skyline in Australia"
 draft: false
 sources: [{"title": "Australia unemployment rate set to steady in June as markets increase bets of RBA rate hike", "url": "https://www.fxstreet.com/news/australia-unemployment-rate-set-to-steady-at-44-in-june-signaling-strong-job-market-202607222130"}]
 keyTakeaways: ["The unemployment rate is expected to hold firm in June, suggesting a resilient labor market.", "Markets may price in higher odds of a rate increase by the Reserve Bank of Australia if the job market stays strong.", "Wage growth and participation trends are the details that will decide how the RBA reads this data.", "A steady jobs picture supports consumer confidence and domestic demand in the near term."]

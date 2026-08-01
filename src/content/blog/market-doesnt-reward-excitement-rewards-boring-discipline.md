@@ -7,6 +7,8 @@ category: "Discipline"
 tags: ["discipline", "risk management", "overtrading"]
 publishDate: "2026-03-06"
 author: "PnL App Team"
+featuredImage: "https://images.pexels.com/photos/8099630/pexels-photo-8099630.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+featuredImageAlt: "Clipboard with letter tiles spelling out rules"
 draft: false
 sources: []
 keyTakeaways:

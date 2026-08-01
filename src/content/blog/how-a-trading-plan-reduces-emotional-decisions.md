@@ -7,6 +7,8 @@ category: "Trading Psychology"
 tags: ["trading plan", "discipline", "emotional trading"]
 publishDate: "2026-07-23"
 author: "PnL App Team"
+featuredImage: "https://images.pexels.com/photos/3746963/pexels-photo-3746963.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+featuredImageAlt: "Person working on a plan with a laptop and stationery"
 draft: false
 sources: []
 keyTakeaways:

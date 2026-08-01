@@ -8,6 +8,8 @@ tags: ["trader behavior", "research", "drawdown", "risk management"]
 publishDate: 2026-07-18
 updatedDate: 2026-07-19
 author: "PnL App Research Team"
+featuredImage: "https://images.pexels.com/photos/7927530/pexels-photo-7927530.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+featuredImageAlt: "Person looking frustrated while working on a laptop"
 reviewer: "Priya Nair, CMT"
 draft: false
 sources:

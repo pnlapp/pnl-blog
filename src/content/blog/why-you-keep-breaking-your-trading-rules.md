@@ -7,6 +7,8 @@ category: "Discipline"
 tags: ["trading rules", "discipline", "self-sabotage"]
 publishDate: "2026-07-11"
 author: "PnL App Team"
+featuredImage: "https://images.pexels.com/photos/8580716/pexels-photo-8580716.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+featuredImageAlt: "A to-do list on a clipboard next to a laptop and pen"
 draft: false
 sources: []
 keyTakeaways:

@@ -7,6 +7,8 @@ category: "Behavioral Research"
 tags: ["demo trading", "live trading", "trader behavior"]
 publishDate: "2026-07-19"
 author: "PnL App Research Team"
+featuredImage: "https://images.pexels.com/photos/7947741/pexels-photo-7947741.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+featuredImageAlt: "Close-up of a printed stock report with market trend charts"
 draft: false
 sources: []
 keyTakeaways:

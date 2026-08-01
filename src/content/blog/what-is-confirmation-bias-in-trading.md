@@ -7,6 +7,8 @@ category: "Behavioral Finance"
 tags: ["confirmation bias", "cognitive bias", "behavioral finance"]
 publishDate: "2026-06-29"
 author: "PnL App Team"
+featuredImage: "https://images.pexels.com/photos/2646533/pexels-photo-2646533.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+featuredImageAlt: "Sneakers on pavement next to a chalk-drawn question mark"
 draft: false
 sources: []
 keyTakeaways:

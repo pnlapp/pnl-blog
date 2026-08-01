@@ -7,6 +7,8 @@ category: "Prop Trading"
 tags: ["prop trading", "funded account", "discipline"]
 publishDate: "2026-07-21"
 author: "PnL App Team"
+featuredImage: "https://images.pexels.com/photos/4963359/pexels-photo-4963359.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+featuredImageAlt: "Two people shaking hands over a business agreement"
 draft: false
 sources: []
 keyTakeaways:

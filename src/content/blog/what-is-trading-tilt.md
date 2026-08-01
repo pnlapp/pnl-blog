@@ -7,6 +7,8 @@ category: "Discipline"
 tags: ["tilt", "trading psychology", "discipline"]
 publishDate: "2026-06-15"
 author: "PnL App Team"
+featuredImage: "https://images.pexels.com/photos/7927041/pexels-photo-7927041.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+featuredImageAlt: "Person showing visible frustration at a computer"
 draft: false
 sources: []
 keyTakeaways:

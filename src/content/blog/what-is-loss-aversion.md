@@ -7,6 +7,8 @@ category: "Behavioral Finance"
 tags: ["loss aversion", "behavioral finance", "cognitive bias"]
 publishDate: "2026-06-25"
 author: "PnL App Team"
+featuredImage: "https://images.pexels.com/photos/6203470/pexels-photo-6203470.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+featuredImageAlt: "Neon blue line chart on a dark background representing market data"
 draft: false
 sources: []
 keyTakeaways:

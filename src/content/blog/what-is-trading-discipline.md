@@ -7,6 +7,8 @@ category: "Discipline"
 tags: ["trading discipline", "consistency", "risk management"]
 publishDate: "2026-07-06"
 author: "PnL App Team"
+featuredImage: "https://images.pexels.com/photos/8099582/pexels-photo-8099582.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+featuredImageAlt: "Scrabble tiles spelling out office rules on a clipboard"
 draft: false
 sources: []
 keyTakeaways:

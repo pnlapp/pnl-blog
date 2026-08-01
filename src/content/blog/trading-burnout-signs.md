@@ -7,6 +7,8 @@ category: "Trading Mindset"
 tags: ["burnout", "mental health", "trading mindset"]
 publishDate: "2026-07-20"
 author: "PnL App Team"
+featuredImage: "https://images.pexels.com/photos/6837653/pexels-photo-6837653.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+featuredImageAlt: "Person with head down on desk, showing signs of exhaustion"
 draft: false
 sources: []
 keyTakeaways:

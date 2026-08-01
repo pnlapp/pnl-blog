@@ -7,6 +7,8 @@ category: "Discipline"
 tags: ["revenge trading", "tilt", "discipline"]
 publishDate: "2026-06-22"
 author: "PnL App Team"
+featuredImage: "https://images.pexels.com/photos/7927348/pexels-photo-7927348.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+featuredImageAlt: "Person appearing frustrated in front of a laptop screen"
 draft: false
 sources: []
 keyTakeaways:

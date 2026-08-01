@@ -7,6 +7,8 @@ category: "Emotional Trading"
 tags: ["emotional trading", "discipline", "self-control"]
 publishDate: "2026-07-09"
 author: "PnL App Team"
+featuredImage: "https://images.pexels.com/photos/7113345/pexels-photo-7113345.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+featuredImageAlt: "Person sitting calmly with eyes closed, practicing focus"
 draft: false
 sources: []
 keyTakeaways:

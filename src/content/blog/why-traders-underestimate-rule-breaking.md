@@ -7,6 +7,8 @@ category: "Behavioral Research"
 tags: ["self-report bias", "discipline", "trader behavior"]
 publishDate: "2026-07-22"
 author: "PnL App Research Team"
+featuredImage: "https://images.pexels.com/photos/8099477/pexels-photo-8099477.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+featuredImageAlt: "Clipboard with letter tiles spelling out rules and sign here"
 draft: false
 sources: []
 keyTakeaways:

@@ -7,6 +7,8 @@ category: "Discipline"
 tags: ["trading slump", "drawdown", "discipline"]
 publishDate: "2026-07-17"
 author: "PnL App Team"
+featuredImage: "https://images.pexels.com/photos/6539032/pexels-photo-6539032.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+featuredImageAlt: "Person resting at a desk, taking a break from work"
 draft: false
 sources: []
 keyTakeaways:

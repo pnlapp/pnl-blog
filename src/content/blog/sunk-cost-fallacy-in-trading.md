@@ -7,6 +7,8 @@ category: "Behavioral Finance"
 tags: ["sunk cost fallacy", "cognitive bias", "exits"]
 publishDate: "2026-07-18"
 author: "PnL App Team"
+featuredImage: "https://images.pexels.com/photos/6770775/pexels-photo-6770775.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+featuredImageAlt: "Digital market analysis display showing cryptocurrency price trends"
 draft: false
 sources: []
 keyTakeaways:

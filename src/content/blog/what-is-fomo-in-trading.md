@@ -7,6 +7,8 @@ category: "Emotional Trading"
 tags: ["fomo", "emotional trading", "discipline"]
 publishDate: "2026-06-18"
 author: "PnL App Team"
+featuredImage: "https://images.pexels.com/photos/7589525/pexels-photo-7589525.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+featuredImageAlt: "Hand holding a phone showing a mobile app screen"
 draft: false
 sources: []
 keyTakeaways:

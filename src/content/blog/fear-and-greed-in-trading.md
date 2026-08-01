@@ -7,6 +7,8 @@ category: "Emotional Trading"
 tags: ["fear", "greed", "emotional trading"]
 publishDate: "2026-07-13"
 author: "PnL App Team"
+featuredImage: "https://images.pexels.com/photos/7567223/pexels-photo-7567223.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+featuredImageAlt: "Financial chart on a screen showing sharp price swings"
 draft: false
 sources: []
 keyTakeaways:

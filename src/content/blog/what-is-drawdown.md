@@ -7,6 +7,8 @@ category: "Risk Management"
 tags: ["drawdown", "risk management"]
 publishDate: 2026-07-05
 author: "PnL App Team"
+featuredImage: "https://images.pexels.com/photos/35118208/pexels-photo-35118208.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+featuredImageAlt: "Candlestick chart displaying a downward bearish trend"
 draft: false
 sources: []
 keyTakeaways: []

@@ -7,6 +7,8 @@ category: "Data & Statistics"
 tags: ["data tracking", "trading discipline", "sample size"]
 publishDate: "2026-03-06"
 author: "Gregory Willson"
+featuredImage: "https://images.pexels.com/photos/27409011/pexels-photo-27409011.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+featuredImageAlt: "A vintage desk with an open book and papers"
 draft: false
 sources: []
 keyTakeaways:
