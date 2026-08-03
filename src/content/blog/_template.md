@@ -27,7 +27,7 @@ author: "PnL App Team"
 reviewer: "Priya Nair, CMT"
 featuredImage: "https://images.example.com/path/to/image.jpg"
 featuredImageAlt: "Short, literal description of what the image shows"
-canonicalURL: "https://blog.pnlapp.co/education/example-headline-that-matches/"
+canonicalURL: "https://pnlapp.co/blog/education/example-headline-that-matches/"
 draft: false
 sources: [{"title": "Name of the source", "url": "https://example.com/source"}]
 keyTakeaways: ["First takeaway, one sentence.", "Second takeaway, one sentence."]

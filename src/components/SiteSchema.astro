@@ -1,19 +1,19 @@
 ---
-import { SITE_TITLE, SITE_URL, APP_URL, ORGANIZATION_NAME } from '../utils/site';
+import { SITE_TITLE, SITE_URL, BASE_PATH, APP_URL, ORGANIZATION_NAME } from '../utils/site';
 
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: ORGANIZATION_NAME,
   url: APP_URL,
-  logo: `${SITE_URL}/favicon.svg`,
+  logo: `${SITE_URL}${BASE_PATH}/favicon.svg`,
 };
 
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: SITE_TITLE,
-  url: SITE_URL,
+  url: `${SITE_URL}${BASE_PATH}`,
   publisher: {
     '@type': 'Organization',
     name: ORGANIZATION_NAME,

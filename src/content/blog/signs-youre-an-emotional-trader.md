@@ -34,7 +34,7 @@ A string of wins builds confidence, and confidence has a way of turning into ove
 
 ## 3. You feel a need to "win back" a loss immediately
 
-This is the entry point to revenge trading, and [what it actually is](/glossary/what-is-revenge-trading/) is an emotional wound looking for a financial fix. The next trade taken specifically to erase the last one is rarely evaluated on its own merits. **Fix**: build a mandatory cooldown after any loss past a certain size, long enough that the next trade is chosen, not reacted into.
+This is the entry point to revenge trading, and [what it actually is](/blog/glossary/what-is-revenge-trading/) is an emotional wound looking for a financial fix. The next trade taken specifically to erase the last one is rarely evaluated on its own merits. **Fix**: build a mandatory cooldown after any loss past a certain size, long enough that the next trade is chosen, not reacted into.
 
 ## 4. You've moved a stop loss to avoid taking a loss
 
@@ -42,7 +42,7 @@ Moving a stop after the trade is live, specifically to give a losing position mo
 
 ## 5. You hold winners too briefly and losers too long
 
-This is [loss aversion](/glossary/what-is-loss-aversion/) doing exactly what it does, losses feel worse than equivalent gains feel good, so the instinct is to lock in wins fast and give losses more time to "come back." **Fix**: set your target and stop together, before entry, and let both play out according to plan rather than reacting to how each position feels once it's open.
+This is [loss aversion](/blog/glossary/what-is-loss-aversion/) doing exactly what it does, losses feel worse than equivalent gains feel good, so the instinct is to lock in wins fast and give losses more time to "come back." **Fix**: set your target and stop together, before entry, and let both play out according to plan rather than reacting to how each position feels once it's open.
 
 ## 6. You've skipped your own entry criteria because a trade "felt right"
 
@@ -50,7 +50,7 @@ A gut feeling that overrides a written entry rule is usually FOMO or overconfide
 
 ## 7. You avoid reviewing your losing trades
 
-If opening your trade log after a bad week feels unpleasant enough that you put it off, that avoidance is itself a signal. [The gap between how disciplined traders think they are and what their logs actually show](/research/why-traders-underestimate-rule-breaking/) tends to be largest for exactly the traders who review the least. **Fix**: schedule the review regardless of how the week went. The worse the week, the more the review usually reveals.
+If opening your trade log after a bad week feels unpleasant enough that you put it off, that avoidance is itself a signal. [The gap between how disciplined traders think they are and what their logs actually show](/blog/research/why-traders-underestimate-rule-breaking/) tends to be largest for exactly the traders who review the least. **Fix**: schedule the review regardless of how the week went. The worse the week, the more the review usually reveals.
 
 ## 8. You trade more when you're bored, not when setups appear
 
@@ -62,7 +62,7 @@ Similar to revenge trading but on a longer timescale, the instinct to trade bigg
 
 ## 10. You feel physical tension before or during trades
 
-A tight chest, clenched jaw, or racing thoughts before placing a trade is usually a sizing or conviction problem showing up in the body before it shows up in a decision. [The most consistent traders tend to describe their best trades as close to boring](/trading-psychology/trading-psychology-myths/) in the moment, not adrenaline-filled. **Fix**: if a trade produces real physical tension, it's probably sized too large for your actual risk tolerance, not a sign you care enough.
+A tight chest, clenched jaw, or racing thoughts before placing a trade is usually a sizing or conviction problem showing up in the body before it shows up in a decision. [The most consistent traders tend to describe their best trades as close to boring](/blog/trading-psychology/trading-psychology-myths/) in the moment, not adrenaline-filled. **Fix**: if a trade produces real physical tension, it's probably sized too large for your actual risk tolerance, not a sign you care enough.
 
 ## 11. You've stopped trading your plan and started trading your mood
 
@@ -70,7 +70,7 @@ Some days feel aggressive, some days feel cautious, and letting that daily mood 
 
 ## 12. You genuinely don't know your win rate or average loss size
 
-This isn't an emotional pattern by itself, it's what makes every pattern above invisible. Without real numbers, "I think I follow my rules most of the time" is a feeling, not a fact, and [that feeling is usually more flattering than the log](/research/why-traders-underestimate-rule-breaking/) actually shows. **Fix**: this one has no shortcut. It requires actually tracking trades with enough detail to see the pattern, not just the outcome.
+This isn't an emotional pattern by itself, it's what makes every pattern above invisible. Without real numbers, "I think I follow my rules most of the time" is a feeling, not a fact, and [that feeling is usually more flattering than the log](/blog/research/why-traders-underestimate-rule-breaking/) actually shows. **Fix**: this one has no shortcut. It requires actually tracking trades with enough detail to see the pattern, not just the outcome.
 
 ## What to do if you counted three or more
 

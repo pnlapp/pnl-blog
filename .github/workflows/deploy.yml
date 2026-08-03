@@ -1,4 +1,11 @@
-name: Deploy to GitHub Pages
+name: Deploy redirects to blog.pnlapp.co
+
+# The blog now lives at pnlapp.co/blog (built and deployed from the pnlapp
+# Website repo). This workflow no longer publishes the full site here — it
+# builds normally just to get the real route list, then generates a static
+# redirect stub for every route, forwarding blog.pnlapp.co/<path> to
+# pnlapp.co/blog/<path>. This keeps existing backlinks and search rankings
+# pointed somewhere useful instead of a dead domain.
 
 on:
   push:
@@ -36,13 +43,19 @@ jobs:
         env:
           PUBLIC_NEWSLETTER_ENDPOINT: ${{ secrets.NEWSLETTER_ENDPOINT }}
 
+      - name: Generate redirect stubs
+        run: node scripts/gen-redirect-stubs.mjs
+
+      - name: Carry over CNAME
+        run: cp public/CNAME dist-redirects/CNAME
+
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./dist-redirects
 
   deploy:
     needs: build

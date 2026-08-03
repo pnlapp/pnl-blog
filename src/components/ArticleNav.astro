@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { BASE_PATH } from '../utils/site';
 
 interface Props {
   prev: CollectionEntry<'blog'> | null;
@@ -13,7 +14,7 @@ const { prev, next } = Astro.props;
   (prev || next) && (
     <nav class="article-nav" aria-label="Article navigation">
       {prev ? (
-        <a href={`/${prev.data.contentType}/${prev.data.slug}`} class="card link prev">
+        <a href={`${BASE_PATH}/${prev.data.contentType}/${prev.data.slug}`} class="card link prev">
           <span class="eyebrow">Previous</span>
           <span class="title">{prev.data.title}</span>
         </a>
@@ -21,7 +22,7 @@ const { prev, next } = Astro.props;
         <span />
       )}
       {next ? (
-        <a href={`/${next.data.contentType}/${next.data.slug}`} class="card link next">
+        <a href={`${BASE_PATH}/${next.data.contentType}/${next.data.slug}`} class="card link next">
           <span class="eyebrow">Next</span>
           <span class="title">{next.data.title}</span>
         </a>

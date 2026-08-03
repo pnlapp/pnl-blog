@@ -1,7 +1,7 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import ArticleGrid from '../components/ArticleGrid.astro';
-import { getPublishedEntries, sortByPublishDate } from '../utils/content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleGrid from '../../components/ArticleGrid.astro';
+import { getPublishedEntries, sortByPublishDate } from '../../utils/content';
 
 const entries = sortByPublishDate(await getPublishedEntries());
 ---

@@ -1,9 +1,9 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import ArticleGrid from '../../components/ArticleGrid.astro';
-import { SECTIONS } from '../../utils/sections';
-import { EDITORIAL_PRINCIPLES, ORGANIZATION_NAME, APP_URL } from '../../utils/site';
-import { getPublishedEntries, getHouseEntries, sortByPublishDate } from '../../utils/content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ArticleGrid from '../../../components/ArticleGrid.astro';
+import { SECTIONS } from '../../../utils/sections';
+import { EDITORIAL_PRINCIPLES, ORGANIZATION_NAME, APP_URL } from '../../../utils/site';
+import { getPublishedEntries, getHouseEntries, sortByPublishDate } from '../../../utils/content';
 
 const entries = sortByPublishDate(getHouseEntries(await getPublishedEntries()));
 

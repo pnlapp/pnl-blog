@@ -1,5 +1,5 @@
 ---
-import { SITE_URL } from '../utils/site';
+import { SITE_URL, BASE_PATH } from '../utils/site';
 
 interface Crumb {
   label: string;
@@ -11,7 +11,7 @@ interface Props {
 }
 
 const { items } = Astro.props;
-const trail: Crumb[] = [{ label: 'Home', path: '/' }, ...items];
+const trail: Crumb[] = [{ label: 'Home', path: `${BASE_PATH}/` }, ...items];
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',

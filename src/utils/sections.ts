@@ -1,4 +1,5 @@
 import { CONTENT_TYPES } from '../content.config';
+import { BASE_PATH } from './site';
 
 export type ContentType = (typeof CONTENT_TYPES)[number];
 
@@ -17,7 +18,7 @@ export interface Section {
 export const SECTIONS: Section[] = [
   {
     contentType: 'news',
-    path: '/news',
+    path: `${BASE_PATH}/news`,
     label: 'News',
     description: 'Market-moving news and trading headlines.',
     intro:
@@ -25,7 +26,7 @@ export const SECTIONS: Section[] = [
   },
   {
     contentType: 'education',
-    path: '/education',
+    path: `${BASE_PATH}/education`,
     label: 'Education',
     description: 'Guides and tutorials for traders at every level.',
     intro:
@@ -33,7 +34,7 @@ export const SECTIONS: Section[] = [
   },
   {
     contentType: 'trading-psychology',
-    path: '/trading-psychology',
+    path: `${BASE_PATH}/trading-psychology`,
     label: 'Trading Psychology',
     description: 'Mindset, discipline, and behavioral insights for traders.',
     intro:
@@ -41,7 +42,7 @@ export const SECTIONS: Section[] = [
   },
   {
     contentType: 'glossary',
-    path: '/glossary',
+    path: `${BASE_PATH}/glossary`,
     label: 'Glossary',
     description: 'Definitions of trading and financial terms.',
     intro:
@@ -49,7 +50,7 @@ export const SECTIONS: Section[] = [
   },
   {
     contentType: 'research',
-    path: '/research',
+    path: `${BASE_PATH}/research`,
     label: 'Research',
     description: 'In-depth analysis and data-driven research.',
     intro:

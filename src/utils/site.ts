@@ -1,7 +1,10 @@
 export const SITE_TITLE = 'PnL Blog';
 export const SITE_DESCRIPTION =
   'Trading news, education, psychology, glossary, and research from PnL App.';
-export const SITE_URL = 'https://blog.pnlapp.co';
+export const SITE_URL = 'https://pnlapp.co';
+
+/** Path segment the blog is served under, since it lives at pnlapp.co/blog rather than its own domain. */
+export const BASE_PATH = '/blog';
 
 /** The parent product this publication belongs to. */
 export const APP_URL = 'https://pnlapp.co';

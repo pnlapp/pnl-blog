@@ -1,7 +1,7 @@
 ---
 import { render } from 'astro:content';
-import ArticleLayout from '../../layouts/ArticleLayout.astro';
-import { getPublishedEntries } from '../../utils/content';
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import { getPublishedEntries } from '../../../utils/content';
 
 export async function getStaticPaths() {
   const entries = await getPublishedEntries('research');

@@ -2,6 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import { getReadingTime } from '../utils/readingTime';
 import { buildSearchIndex } from '../utils/content';
+import { BASE_PATH } from '../utils/site';
 
 interface Props {
   entry: CollectionEntry<'blog'>;
@@ -18,7 +19,7 @@ const visibleTags = tags.slice(0, 3);
 ---
 
 <Tag class:list={['card', { featured }]} data-search={buildSearchIndex(entry)}>
-  <a href={`/${entry.data.contentType}/${entry.data.slug}`} class="link">
+  <a href={`${BASE_PATH}/${entry.data.contentType}/${entry.data.slug}`} class="link">
     {
       featuredImage ? (
         <img class="image" src={featuredImage} alt={featuredImageAlt ?? ''} loading="lazy" />

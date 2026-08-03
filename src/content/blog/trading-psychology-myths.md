@@ -42,15 +42,15 @@ Somewhere along the way, journaling got coded as a beginner habit that "real" tr
 
 ## Myth 5: "Revenge trading is just being motivated to win it back"
 
-Motivation implies a clear head making a deliberate choice. Revenge trading is closer to the opposite, an urgent need to fix an emotional wound with a financial decision, made faster and with worse judgment than the trade that caused the wound in the first place. [What revenge trading actually is](/glossary/what-is-revenge-trading/) mechanically has almost nothing to do with motivation, and treating it as a virtue rather than a warning sign is how one bad trade becomes three.
+Motivation implies a clear head making a deliberate choice. Revenge trading is closer to the opposite, an urgent need to fix an emotional wound with a financial decision, made faster and with worse judgment than the trade that caused the wound in the first place. [What revenge trading actually is](/blog/glossary/what-is-revenge-trading/) mechanically has almost nothing to do with motivation, and treating it as a virtue rather than a warning sign is how one bad trade becomes three.
 
 ## Myth 6: "Confident traders don't second-guess themselves"
 
-Confidence and certainty get treated as the same thing, and they're not. The traders who last are usually confident in their process while staying genuinely uncertain about any individual trade's outcome, because markets are probabilistic and no process wins every time. A trader who never second-guesses a position isn't confident, they've usually just stopped paying attention to the information that would contradict their original idea, which is [confirmation bias](/glossary/what-is-confirmation-bias-in-trading/) doing exactly what it does.
+Confidence and certainty get treated as the same thing, and they're not. The traders who last are usually confident in their process while staying genuinely uncertain about any individual trade's outcome, because markets are probabilistic and no process wins every time. A trader who never second-guesses a position isn't confident, they've usually just stopped paying attention to the information that would contradict their original idea, which is [confirmation bias](/blog/glossary/what-is-confirmation-bias-in-trading/) doing exactly what it does.
 
 ## Myth 7: "Demo trading proves nothing, only real money counts"
 
-There's a partial truth buried in this one, real money does introduce psychological pressure demo accounts don't replicate. But the myth version throws out something genuinely useful: demo trading is where mechanical skills, chart reading, order execution, and testing a new strategy's logic actually get built without paying tuition for every mistake. [The gap between demo and live trading](/research/demo-trading-vs-live-trading-psychology/) is real and worth planning for, but it's a reason to expect an adjustment period, not a reason to skip demo trading altogether.
+There's a partial truth buried in this one, real money does introduce psychological pressure demo accounts don't replicate. But the myth version throws out something genuinely useful: demo trading is where mechanical skills, chart reading, order execution, and testing a new strategy's logic actually get built without paying tuition for every mistake. [The gap between demo and live trading](/blog/research/demo-trading-vs-live-trading-psychology/) is real and worth planning for, but it's a reason to expect an adjustment period, not a reason to skip demo trading altogether.
 
 ## The pattern behind all seven
 

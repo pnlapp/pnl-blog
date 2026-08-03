@@ -6,7 +6,10 @@ import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://blog.pnlapp.co',
+  site: 'https://pnlapp.co',
+  build: {
+    assetsPrefix: '/blog',
+  },
   integrations: [
     sitemap({
       filter: (page) => !page.endsWith('/rss.xml')

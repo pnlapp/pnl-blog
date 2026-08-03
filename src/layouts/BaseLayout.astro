@@ -3,7 +3,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import SiteSchema from '../components/SiteSchema.astro';
 import { getCanonicalURL, getAbsoluteURL } from '../utils/seo';
-import { SITE_TITLE } from '../utils/site';
+import { SITE_TITLE, BASE_PATH } from '../utils/site';
 import '@fontsource-variable/inter';
 import '@fontsource-variable/inter/wght-italic.css';
 import '@fontsource/jetbrains-mono/400.css';
@@ -45,10 +45,10 @@ const resolvedImage = image ? getAbsoluteURL(image) : undefined;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#0a0b08" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="alternate" type="application/rss+xml" title={SITE_TITLE} href="/rss.xml" />
+    <link rel="icon" type="image/svg+xml" href={`${BASE_PATH}/favicon.svg`} />
+    <link rel="icon" href={`${BASE_PATH}/favicon.ico`} sizes="any" />
+    <link rel="apple-touch-icon" href={`${BASE_PATH}/apple-touch-icon.png`} />
+    <link rel="alternate" type="application/rss+xml" title={SITE_TITLE} href={`${BASE_PATH}/rss.xml`} />
     <meta name="generator" content={Astro.generator} />
 
     <title>{pageTitle}</title>
